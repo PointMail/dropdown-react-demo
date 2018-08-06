@@ -1,0 +1,37 @@
+#header-logo {
+  width: 120px;
+}
+#editable-wrapper {
+  width: 500px;
+  margin: 0 auto;
+}
+#content-editable {
+  height: 300px;
+  margin: 10px auto 30px;
+  border-radius: 1vw;
+  box-shadow: 0 0 2vw 0.4vw rgba(50, 50, 93, 0.1);
+  outline: 0px solid transparent;
+  padding: 1vw;
+}
+.dropdown-options {
+  display: flex;
+  justify-content: space-between;
+}
+header {
+  background-image: url("assets/header-grad.svg");
+  background-size: cover;
+  padding: 3vw 5em;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+header > h1 {
+  margin: 0;
+  color: #333333;
+}
+.App {
+  padding: 2vw;
+}
+form .text-field {
+  margin: 0 1em;
+}

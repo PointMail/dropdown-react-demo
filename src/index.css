@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body,
+body input {
+  font-family: Avenir Next;
+}
+.papayawhip {
+  background-color: papayawhip;
+}
+.point-radio-button-wrapper {
+  line-height: 30px;
+  color: rgba(0, 0, 0, 0.65);
+  display: inline-block;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #d9d9d9;
+  border-left: 0;
+  border-top-width: 1.02px;
+  background: #fff;
+  padding: 0 15px;
+  position: relative;
+}
+.point-radio-button-wrapper:first-child {
+  border-radius: 4px 0 0 4px;
+  border-left: 1px solid #d9d9d9;
+}
+.point-radio-button-wrapper.active:first-child {
+  border-color: rgb(13, 71, 161);
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.point-radio-button-wrapper:last-child {
+  border-radius: 0 4px 4px 0;
+}
+.point-radio-button-wrapper.active {
+  background: #fff;
+  border-color: rgb(13, 71, 161);
+  color: rgb(13, 71, 161);
+  -webkit-box-shadow: -1px 0 0 0 rgb(13, 71, 161);
+  box-shadow: -1px 0 0 0 rgb(13, 71, 161);
+  z-index: 1;
+}
+.point-radio-button {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
