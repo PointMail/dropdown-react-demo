@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Switch, FormControlLabel, TextField, Button } from "@material-ui/core";
+import { Switch, FormControlLabel } from "@material-ui/core";
 import addDropdown, { AutoCompleteInstance } from "@point-api/dropdown-react";
+import ContextForm from "./ContextForm";
 
 /**
  *  Creates a react component that simply wraps a content editable div
@@ -60,7 +61,7 @@ class EditableDemo extends React.Component<
     );
   };
 
-  /** 
+  /**
    * Toggle the keyword searching mode of the Point API session
    * @param e - The Input change event with the checkbox state
    */
@@ -80,19 +81,7 @@ class EditableDemo extends React.Component<
       <div id="editable-wrapper">
         <div style={{ marginTop: 30 }}>{this.props.email}</div>
         <this.state.Component ref={this.editableRef} />
-        <div>
-          <TextField
-            className="text-field"
-            type="text"
-            placeholder="Past Context"
-            name="pastContext"
-            inputRef={this.contextRef}
-            multiline={true}
-          />
-          <Button variant="outlined" onClick={this.setContext}>
-            Set
-          </Button>
-        </div>
+        <ContextForm inputRef={this.contextRef} setContext={this.setContext} />
         <FormControlLabel
           control={
             <Switch
