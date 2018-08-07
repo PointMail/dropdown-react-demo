@@ -53,7 +53,8 @@ class EditableDemo extends React.Component<
   }
 
   /** Set the past context of the Point API session */
-  public setContext = async () => {
+  public setContext = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
     if (!this.editableRef.current || !this.contextRef.current) return;
     await this.editableRef.current.setContext(
       this.contextRef.current.value,

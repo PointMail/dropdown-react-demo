@@ -1,9 +1,10 @@
 import * as React from "react";
 import { TextField, Button } from "@material-ui/core";
 
+
 function contextForm({ inputRef, setContext }) {
   return (
-    <div>
+    <form>
       <TextField
         className="text-field"
         type="text"
@@ -12,10 +13,10 @@ function contextForm({ inputRef, setContext }) {
         inputRef={inputRef}
         multiline={true}
       />
-      <Button variant="outlined" onClick={setContext}>
+      <Button type="submit" variant="outlined" onClick={setContext}>
         Set
       </Button>
-    </div>
+    </form>
   );
 }
 

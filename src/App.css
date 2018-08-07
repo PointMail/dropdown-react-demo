@@ -5,6 +5,17 @@
   width: 500px;
   margin: 0 auto;
 }
+#demo-radios {
+  display: inline-flex;
+}
+#create-editable {
+  display: flex;
+  align-content: center;
+}
+#create-editable > .text-field {
+  align-self: center;
+}
+
 #content-editable {
   height: 300px;
   margin: 10px auto 30px;
@@ -12,6 +23,22 @@
   box-shadow: 0 0 2vw 0.4vw rgba(50, 50, 93, 0.1);
   outline: 0px solid transparent;
   padding: 1vw;
+}
+.reply-wrapper {
+  padding: 2%;
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+  align-items: center;
+  flex-flow: column;
+}
+.reply-suggestion {
+  width: min-content;
+  padding: 10px;
+  white-space: nowrap;
+}
+.reply-suggestion:not(:first-child) {
+  margin-top: 20px;
 }
 .dropdown-options {
   display: flex;
