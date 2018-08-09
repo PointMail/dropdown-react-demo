@@ -2,7 +2,7 @@
 * Clone repo 
 * `cd dropdown-react-demo`
 * `npm install` (will take a while!)
-* `npm run start:prod`. Your browser should open automatically with the dev server running. 
+* `npm run start`. Your browser should open automatically with your local server running. 
 --- 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter)
