@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Paper } from "@material-ui/core";
-import PointAPI, { SuggestionMeta } from "@point-api/js-sdk";
+import PointAPI, { ReplyMeta } from "@point-api/js-sdk";
 import ContextForm from "./ContextForm";
 /** Props to pass to a ReplyDemo */
 interface ReplyDemoProps {
@@ -12,7 +12,7 @@ interface ReplyDemoProps {
 
 /** State of an ReplyDemo */
 interface ReplyDemoState {
-  suggestions: SuggestionMeta[] | null;
+  replySuggestions: ReplyMeta[] | null;
 }
 
 /** Component that displays sample replies to some past context */
@@ -25,7 +25,7 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
   constructor(props: ReplyDemoProps) {
     super(props);
     this.state = {
-      suggestions: null
+      replySuggestions: null
     };
     this.api = new PointAPI(props.email, props.jwt);
     this.contextRef = React.createRef();
@@ -35,26 +35,33 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
   public setContext = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!this.contextRef.current) return;
-    await this.api.setContext(this.contextRef.current.value, "text");
     this.setState({
-      suggestions: await this.api.searchSuggestions("")
+      replySuggestions: await this.api.getReplies(
+        this.contextRef.current.value,
+        "text"
+      )
     });
   };
 
   public render() {
-    const { suggestions } = this.state;
+    const { replySuggestions } = this.state;
 
     return (
       <div id="editable-wrapper">
         <div style={{ marginTop: 30 }}>{this.props.email}</div>
         <Paper className="reply-wrapper">
-          {suggestions
-            ? suggestions.map(({ suggestion }) => (
-                <Paper className="reply-suggestion" key={suggestion}>
-                  {suggestion}
-                </Paper>
+          {replySuggestions
+            ? replySuggestions.map(({ prompt, replies }) => (
+                <div>
+                  <h3>{prompt}:</h3>
+                  {replies.map(reply => (
+                    <Paper className="reply-suggestion" key={reply}>
+                      {reply}
+                    </Paper>
+                  ))}
+                </div>
               ))
-            : "Type some context!"}
+            : "No replies found!"}
         </Paper>
         <ContextForm inputRef={this.contextRef} setContext={this.setContext} />
       </div>
