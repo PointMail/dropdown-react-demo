@@ -56,10 +56,7 @@ class EditableDemo extends React.Component<
   public setContext = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!this.editableRef.current || !this.contextRef.current) return;
-    await this.editableRef.current.setContext(
-      this.contextRef.current.value,
-      "text"
-    );
+    await this.editableRef.current.setContext(this.contextRef.current.value);
   };
 
   /**

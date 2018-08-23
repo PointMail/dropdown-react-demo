@@ -35,11 +35,10 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
   public setContext = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!this.contextRef.current) return;
+    const response = await this.api.reply(this.contextRef.current.value);
+
     this.setState({
-      replySuggestions: await this.api.getReplies(
-        this.contextRef.current.value,
-        "text"
-      )
+      replySuggestions: response ? response.replies : null
     });
   };
 
@@ -51,10 +50,10 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
         <div style={{ marginTop: 30 }}>{this.props.email}</div>
         <Paper className="reply-wrapper">
           {replySuggestions
-            ? replySuggestions.map(({ prompt, replies }) => (
+            ? replySuggestions.map(({ prompt, suggestions }) => (
                 <div>
                   <h3>{prompt}:</h3>
-                  {replies.map(reply => (
+                  {suggestions.map(({ text: reply }) => (
                     <Paper className="reply-suggestion" key={reply}>
                       {reply}
                     </Paper>
