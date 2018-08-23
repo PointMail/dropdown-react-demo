@@ -64,7 +64,7 @@ class App extends React.Component<{}, AppState> {
       return null;
     }
     const resp = await fetch(
-      `https://dev.pointapi.com/auth?emailAddress=${emailAddress}`,
+      `https://v1.pointapi.com/auth?emailAddress=${emailAddress}`,
       {
         headers: {
           Authorization: "Bearer " + apiKey
