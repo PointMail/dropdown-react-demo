@@ -5,7 +5,7 @@
   "homepage": "https://pointapi.com",
   "dependencies": {
     "@material-ui/core": "^1.4.1",
-    "@point-api/dropdown-react": "^1.0.3",
+    "@point-api/dropdown-react": "latest",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts-ts": "2.16.0"
