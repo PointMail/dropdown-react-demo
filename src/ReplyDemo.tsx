@@ -47,7 +47,7 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
 
     return (
       <div id="editable-wrapper">
-        <div style={{ marginTop: 30 }}>{this.props.email}</div>
+        <ContextForm inputRef={this.contextRef} setContext={this.setContext} />
         <Paper className="reply-wrapper">
           {replySuggestions
             ? replySuggestions.map(({ prompt, suggestions }) => (
@@ -62,7 +62,6 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
               ))
             : "No replies found!"}
         </Paper>
-        <ContextForm inputRef={this.contextRef} setContext={this.setContext} />
       </div>
     );
   }

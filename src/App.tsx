@@ -139,7 +139,7 @@ class App extends React.Component<{}, AppState> {
               <FormControlLabel
                 value="editable"
                 control={<Radio />}
-                label="Editable"
+                label="Autocomplete"
               />
             </RadioGroup>
             <Button type="submit" variant="outlined" onClick={this.addDemo}>
