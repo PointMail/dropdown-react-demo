@@ -52,7 +52,7 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
           {replySuggestions
             ? replySuggestions.map(({ prompt, suggestions }) => (
                 <div>
-                  <h3>{prompt}:</h3>
+                  <h3>{prompt}</h3>
                   {suggestions.map(({ text: reply }) => (
                     <Paper className="reply-suggestion" key={reply}>
                       {reply}

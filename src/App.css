@@ -47,7 +47,7 @@
 header {
   background-image: url("assets/header-grad.svg");
   background-size: cover;
-  padding: 3vw 5em;
+  padding: 1.5vw 5em;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -61,4 +61,7 @@ header > h1 {
 }
 form .text-field {
   margin: 0 1em;
+}
+#past-context-textfield {
+  margin-top: 4em;
 }

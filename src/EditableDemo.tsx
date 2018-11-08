@@ -77,9 +77,8 @@ class EditableDemo extends React.Component<
   public render() {
     return (
       <div id="editable-wrapper">
-        <div style={{ marginTop: 30 }}>{this.props.email}</div>
-        <this.state.Component ref={this.editableRef} />
         <ContextForm inputRef={this.contextRef} setContext={this.setContext} />
+        <this.state.Component ref={this.editableRef} />
         <FormControlLabel
           control={
             <Switch
