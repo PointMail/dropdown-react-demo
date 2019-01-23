@@ -6,11 +6,11 @@ function contextForm({ inputRef, setContext }) {
   return (
     <form>
       <TextField
-        id="past-context-textfield"
+        id="previous-message-textfield"
         className="text-field"
         type="text"
-        placeholder="Past Context"
-        name="pastContext"
+        placeholder="Previous Message"
+        name="previousMessage"
         inputRef={inputRef}
         multiline={true}
         rows={3}

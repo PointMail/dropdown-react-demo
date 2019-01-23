@@ -15,11 +15,11 @@ interface ReplyDemoState {
   replySuggestions: ReplyMeta[] | null;
 }
 
-/** Component that displays sample replies to some past context */
+/** Component that displays sample replies to some previous message */
 class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
   /** An instance of Point API to get suggestions with */
   private api: PointAPI;
-  /** Ref to the input field for past context */
+  /** Ref to the input field for previous message */
   private contextRef: React.RefObject<HTMLInputElement>;
 
   constructor(props: ReplyDemoProps) {
@@ -31,7 +31,7 @@ class ReplyDemo extends React.Component<ReplyDemoProps, ReplyDemoState> {
     this.contextRef = React.createRef();
   }
 
-  /** Set the past context of the Point API session */
+  /** Set the previous message of the Point API session */
   public setContext = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!this.contextRef.current) return;

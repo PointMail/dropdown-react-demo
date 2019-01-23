@@ -40,7 +40,7 @@ class EditableDemo extends React.Component<
   /** Ref to the Autocomplete instance created by addDropdown */
   private editableRef: React.RefObject<AutoCompleteInstance>;
 
-  /** Ref to the input field for past context */
+  /** Ref to the input field for previous message */
   private contextRef: React.RefObject<HTMLInputElement>;
 
   constructor(props: EditableDemoProps) {
@@ -52,7 +52,7 @@ class EditableDemo extends React.Component<
     this.contextRef = React.createRef();
   }
 
-  /** Set the past context of the Point API session */
+  /** Set the previous message of the Point API session */
   public setContext = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!this.editableRef.current || !this.contextRef.current) return;
@@ -69,7 +69,7 @@ class EditableDemo extends React.Component<
         contentEditable,
         this.props.email,
         this.props.jwt,
-        { keywordSearch: e.target.checked }
+        { searchType: e.target.checked ? "keyword" : "standard" }
       )
     });
   };
@@ -77,6 +77,7 @@ class EditableDemo extends React.Component<
   public render() {
     return (
       <div id="editable-wrapper">
+        <div style={{ marginTop: 30 }}>{this.props.email}</div>
         <ContextForm inputRef={this.contextRef} setContext={this.setContext} />
         <this.state.Component ref={this.editableRef} />
         <FormControlLabel
